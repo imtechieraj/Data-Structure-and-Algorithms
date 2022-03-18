@@ -13,6 +13,8 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 */
 
 var rotate = function (nums, k) {
+     k = k % nums.length;
+  
     var leftItem = nums.slice(0, nums.length - k);
     var rightItem = nums.slice(nums.length - k);
 
@@ -27,4 +29,14 @@ var rotate = function (nums, k) {
     console.log(nums)
 };
 
-console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3))
+console.log(rotate([1, 2], 5))
+
+
+var rotate2=(nums,k)=>{
+    let first = k % nums.length;
+    console.log(first)
+    nums.unshift(...nums.splice(-first));
+    return nums;
+}
+
+//console.log(rotate2([1, 2], 5))
